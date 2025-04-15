@@ -1,0 +1,159 @@
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: row;
+  background-color: #f9f9f9;
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.sidebar .profile img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.sidebar h2 {
+  font-family: 'Playfair Display', serif;
+  margin: 10px 0 5px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 15px 0;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.social {
+  margin-top: 30px;
+}
+
+.social a {
+  display: block;
+  color: #333;
+  margin: 5px 0;
+}
+
+.main-content {
+  margin-left: 250px;
+  padding: 40px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.banner-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Toggle Buttons */
+#darkToggle, #menuToggle {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#darkToggle {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: #eaeaea;
+  z-index: 1002;
+}
+
+#menuToggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #eaeaea;
+  font-size: 24px;
+  z-index: 1001;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark .sidebar {
+  background-color: #1f1f1f;
+}
+
+body.dark .sidebar a {
+  color: #e0e0e0;
+}
+
+body.dark #darkToggle {
+  background-color: #444;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  #menuToggle {
+    display: block;
+  }
+
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    left: -100%;
+    top: 0;
+    transition: left 0.3s ease;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sidebar nav ul li {
+    margin: 10px;
+  }
+
+  .sidebar .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
